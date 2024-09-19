@@ -69,6 +69,7 @@ $(document).ready(function () {
     $('#coffee-form').on('submit', function (e) {
         e.preventDefault();
         let formData = $(this).serialize();
+        console.log(formData + " formdata")
 
         sendRequest('saveDrinks', formData, 'POST', function (response) {
             if (response.msg === -1) {
