@@ -1,15 +1,7 @@
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace http_winform
+namespace LMasicHTTP
 {
     public partial class Form1 : Form
     {
@@ -34,19 +26,35 @@ namespace http_winform
         const string username = "coffeee";
         const string password = "password";
 
-        static List<T>? GetFromJson<T>(string endpoint, bool onlyArray = false)
+        static List<T>? GetFromJson<T>(string endpoint)
         {
-            var json = client.GetStringAsync(GetPath(endpoint)).Result;
+            try
+            {
+                var json = client.GetStringAsync(GetPath(endpoint)).Result;
 
-            var result = JsonConvert.DeserializeObject<Dictionary<string, T>>(json)?.Values;
+                var result = JsonConvert.DeserializeObject<Dictionary<string, T>>(json)?.Values;
 
-            return result?.ToList();
+                return result?.ToList();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Couldn't access host");
+                return [];
+            }
         }
 
         static object[][]? GetFromJson(string endpoint)
         {
-            var json = client.GetStringAsync(GetPath(endpoint)).Result;
-            return JsonConvert.DeserializeObject<object[][]>(json);
+            try
+            {
+                var json = client.GetStringAsync(GetPath(endpoint)).Result;
+                return JsonConvert.DeserializeObject<object[][]>(json);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Couldn't access host");
+                return [];
+            }
         }
 
         public static string BtoA(string toEncode)
@@ -185,26 +193,44 @@ namespace http_winform
             }
 
 
-         
-            var kvpairs = new KeyValuePair<string, string>[trackBars.Count+1];
+
+            var kvpairs = new KeyValuePair<string, string>[trackBars.Count + 1];
             kvpairs[0] = new("user", selectedUser.ToString());
-         
-            for (int i = 0; i< trackBars.Count; i++)
+
+            var validData = false;
+            for (int i = 0; i < trackBars.Count; i++)
             {
-                kvpairs[i+1]= new ("type[]", trackBars[i].Value.ToString());//   += ",type[]:" + "\"" + item.Value + "\"";
+                if (trackBars[i].Value != 0)
+                {
+                    validData = true;
+                }
+                kvpairs[i + 1] = new("type[]", trackBars[i].Value.ToString());
             }
-            //content += "}";
 
-          //  var data = new StringContent(content, Encoding.UTF8, "application/json");
+            if (!validData)
+            {
+                MessageBox.Show("No drink value selected", "");
+                return;
+            }
 
-          
-            
             var encodedContent = new FormUrlEncodedContent(kvpairs);
 
-        
             var response = await client.PostAsync(GetPath("saveDrinks"), encodedContent);
             var responseString = await response.Content.ReadAsStringAsync();
-            MessageBox.Show(responseString.ToString(), "");
+
+            if (responseString.Contains("-1"))
+            {
+                responseString = "Failed";
+            }
+            else if (responseString.Contains('1'))
+            {
+                responseString = "Success";
+            }
+            else
+            {
+                responseString = "Unknown response";
+            }
+            MessageBox.Show(responseString, "");
         }
     }
 }

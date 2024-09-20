@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LMasicHTTP
-build_property.ProjectDir = C:\Users\joima\Desktop\Projects\C#\LMasicHTTP\LMasicHTTP\
+build_property.ProjectDir = C:\Users\joima\Documents\GitHub\wa_kava\LMasicHTTP\LMasicHTTP\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

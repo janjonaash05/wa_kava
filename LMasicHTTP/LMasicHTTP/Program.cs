@@ -1,4 +1,4 @@
-namespace http_winform
+namespace LMasicHTTP
 {
     internal static class Program
     {

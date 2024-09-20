@@ -1,4 +1,4 @@
-﻿namespace http_winform
+﻿namespace LMasicHTTP
 {
     partial class Form1
     {
@@ -38,29 +38,36 @@
             // 
             // print
             // 
+            print.BackColor = Color.DimGray;
             print.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            print.Location = new Point(744, 553);
+            print.ForeColor = Color.DeepSkyBlue;
+            print.Location = new Point(744, 570);
             print.Name = "print";
             print.Size = new Size(159, 79);
             print.TabIndex = 0;
             print.Text = "Vypsat";
-            print.UseVisualStyleBackColor = true;
+            print.UseVisualStyleBackColor = false;
             print.Click += print_Click;
             // 
             // monthComboBox
             // 
+            monthComboBox.BackColor = Color.DimGray;
             monthComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            monthComboBox.FlatStyle = FlatStyle.Popup;
+            monthComboBox.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            monthComboBox.ForeColor = Color.DeepSkyBlue;
             monthComboBox.Items.AddRange(new object[] { "leden", "únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec" });
             monthComboBox.Location = new Point(744, 524);
             monthComboBox.Name = "monthComboBox";
-            monthComboBox.Size = new Size(159, 23);
+            monthComboBox.Size = new Size(159, 40);
             monthComboBox.TabIndex = 1;
             // 
             // monthDataFlowLayout
             // 
             monthDataFlowLayout.AutoScroll = true;
-            monthDataFlowLayout.BackColor = Color.Silver;
+            monthDataFlowLayout.BackColor = Color.DimGray;
             monthDataFlowLayout.FlowDirection = FlowDirection.TopDown;
+            monthDataFlowLayout.ForeColor = Color.DeepSkyBlue;
             monthDataFlowLayout.Location = new Point(642, 11);
             monthDataFlowLayout.Name = "monthDataFlowLayout";
             monthDataFlowLayout.Size = new Size(352, 507);
@@ -70,8 +77,9 @@
             // peopleFlowLayout
             // 
             peopleFlowLayout.AutoScroll = true;
-            peopleFlowLayout.BackColor = Color.Silver;
+            peopleFlowLayout.BackColor = Color.DimGray;
             peopleFlowLayout.FlowDirection = FlowDirection.TopDown;
+            peopleFlowLayout.ForeColor = Color.DeepSkyBlue;
             peopleFlowLayout.Location = new Point(15, 11);
             peopleFlowLayout.Name = "peopleFlowLayout";
             peopleFlowLayout.Size = new Size(523, 234);
@@ -80,20 +88,23 @@
             // 
             // send
             // 
+            send.BackColor = Color.DimGray;
             send.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            send.Location = new Point(189, 553);
+            send.ForeColor = Color.DeepSkyBlue;
+            send.Location = new Point(188, 570);
             send.Name = "send";
             send.Size = new Size(159, 79);
             send.TabIndex = 10;
             send.Text = "Odeslat";
-            send.UseVisualStyleBackColor = true;
+            send.UseVisualStyleBackColor = false;
             send.Click += send_Click;
             // 
             // drinksFlowLayout
             // 
             drinksFlowLayout.AutoScroll = true;
-            drinksFlowLayout.BackColor = Color.Silver;
+            drinksFlowLayout.BackColor = Color.DimGray;
             drinksFlowLayout.FlowDirection = FlowDirection.TopDown;
+            drinksFlowLayout.ForeColor = Color.DeepSkyBlue;
             drinksFlowLayout.Location = new Point(15, 251);
             drinksFlowLayout.Name = "drinksFlowLayout";
             drinksFlowLayout.Size = new Size(523, 296);
@@ -104,6 +115,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DeepSkyBlue;
             ClientSize = new Size(1006, 658);
             Controls.Add(drinksFlowLayout);
             Controls.Add(send);
@@ -111,8 +123,13 @@
             Controls.Add(monthComboBox);
             Controls.Add(print);
             Controls.Add(peopleFlowLayout);
+            ForeColor = SystemColors.ActiveCaption;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            RightToLeftLayout = true;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Kava";
             Load += Form1_Load;
             ResumeLayout(false);
         }

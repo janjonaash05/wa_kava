@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace http_winform
+namespace LMasicHTTP
 {
     public class GetPeopleData
     {

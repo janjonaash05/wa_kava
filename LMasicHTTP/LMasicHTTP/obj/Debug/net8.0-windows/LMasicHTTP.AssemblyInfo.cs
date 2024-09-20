@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LMasicHTTP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85714343b0f43d0ef3420d03f08b412f0137ca5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("LMasicHTTP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LMasicHTTP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
